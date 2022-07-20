@@ -38,8 +38,8 @@ body {
     background-color: rgb(72, 245, 129);
 }
 
-.store-brand > * {
-    margin: 0px 15px 0px 15px;
+.store-section > * {
+    margin: 0px 20px 0px 20px;
 }
 
 .store-label {
@@ -49,19 +49,15 @@ body {
 .store-scroll-menu {
     overflow: auto;
     white-space: nowrap;
-    margin: 0px 20px 0px 20px;
     height: 230px;
 }
 
 .store-container {
     display: inline-block;
     position: relative;
-    width: 150px;
+    width: max(12vw, 150px);
     height: 200px;
-}
-
-.store-container:not(:first-child) {
-    margin: 0px 5px 0px 5px;
+    margin: 0px 0.5vw 0px 0.5vw;
 }
 
 .store-container img {
@@ -80,7 +76,22 @@ body {
 
 .store-container .container-overlay p {
     color: white;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 5px 10px 5px;
     margin: 0;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.store-scroll-menu a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+/* per id styles */
+
+.shoeImg {
+    margin: 20px;
 }
