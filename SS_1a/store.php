@@ -1,9 +1,5 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location: index.php");
-}
-
 include_once "config.php";
 $db = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
@@ -24,7 +20,7 @@ $shoesByBrand = [];
 
 foreach ($distinctBrands as $brand) {
     // grab all of a brand's shoes
-    $shoes = $db->prepare("SELECT id, showImg, shoeName, shoeBrand, colorWay FROM shoes WHERE shoeBrand=:givenBrand");
+    $shoes = $db->prepare("SELECT id, showImg, shoeName, shoeBrand, colorWay, shoeCost FROM shoes WHERE shoeBrand=:givenBrand");
     $shoes->bindValue(":givenBrand", $brand["shoeBrand"]);
     $shoes->execute();
     $shoes = $shoes->fetchAll();
@@ -40,7 +36,7 @@ $shoes = $shoes->fetchAll();
 function displayContainer(array $item)
 {
     echo
-    "
+    " 
     <a href=store.php?id={$item["id"]} title=\"{$item["shoeName"]} | {$item["colorWay"]}\">
     <div class=store-container>
         <img src=https://images.stockx.com/images/{$item["showImg"]}>
@@ -62,14 +58,17 @@ function displayContainer(array $item)
     <link rel=stylesheet href=styles/store.css>
     <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto+Slab|Roboto:300,400,500,700" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="store.js"></script>
+
     <title>SneakerSeeker | Home</title>
 </head>
 
 <body>
     <ul class=nav-bar>
         <li aria-current=page class=nav-home><a href=store.php>Home</a></li>
-        <li><a href=profile.php>Profile</a></li>
+        <li><a id='logoutBtn' href='logout.php'><?php $_SESSION['username']; ?></a></li>
         <li><a href=cart.php>Cart</a></li>
     </ul>
 
@@ -132,11 +131,29 @@ function displayContainer(array $item)
         $shoe->bindValue(":givenID", $_GET["id"]);
         $shoe->execute();
         $shoe = $shoe->fetch();
+        // current shoe
 
-        echo "<img class=shoeImg src=https://images.stockx.com/images/{$shoe["showImg"]}>";
+        echo
+        "
+        <div class=shoeContainer>
+            <div class=imgContainer>
+                <img class=shoeImg src=https://images.stockx.com/images/{$shoe["showImg"]}>
+            </div>
+            <div class=infoContainer>
+                <h2 class=name>{$shoe["shoeName"]}</h2>
+                <div class=colorwrap><h3 class=color>{$shoe["colorWay"]}</h3> <img src=img/coloricon.png></div>
+                <hr id=sep>
+                <div class=wrap>
+                    <h1 class=price>$ {$shoe["shoeCost"]}</h1>
+                    <a class=cart><div><p>Add to Cart</p></div></a>
+                </div>
+            </div>
+        </div>
+
+        <div id=cartNotif>{$shoe["shoeName"]}, {colorWay} added to cart</div>
+        ";
     }
     ?>
-
 
 </body>
 
