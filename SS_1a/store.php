@@ -39,7 +39,7 @@ $shoes = $shoes->fetchAll();
 function displayContainer(array $item)
 {
     echo
-    " 
+    "
     <a href=store.php?id={$item["id"]} title=\"{$item["shoeName"]} | {$item["colorWay"]}\">
     <div class=store-container>
         <img src=https://images.stockx.com/images/{$item["showImg"]}>
@@ -71,7 +71,7 @@ function displayContainer(array $item)
 <body>
     <ul class=nav-bar>
         <li aria-current=page class=nav-home><a href=store.php>Home</a></li>
-        <li><a id='logoutBtn' href='logout.php'><?php $_SESSION['username']; ?></a></li>
+        <li><a id='logoutBtn' href='logout.php'><?php echo $_SESSION['username']; ?></a></li>
         <li><a href=cart.php>Cart</a></li>
     </ul>
 
