@@ -1,0 +1,101 @@
+body * {
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.nav-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+    position: sticky;
+}
+
+.nav-bar .nav-home {
+    float: left;
+}
+
+.nav-bar li {
+    float: right;
+}
+
+.nav-bar li a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-bar li a:visited {
+    color: white;
+}
+
+.nav-bar [aria-current="page"] {
+    background-color: rgb(72, 245, 129);
+}
+
+.store-section > * {
+    margin: 0px 20px 0px 20px;
+}
+
+.store-label {
+    width: inherit;
+}
+
+.store-scroll-menu {
+    overflow: auto;
+    white-space: nowrap;
+    height: 230px;
+}
+
+.store-container {
+    display: inline-block;
+    position: relative;
+    width: max(12vw, 150px);
+    height: 200px;
+    margin: 0px 0.5vw 0px 0.5vw;
+}
+
+.store-container img {
+    width: inherit;
+    height: inherit;
+    object-fit: scale-down;
+}
+
+.store-container .container-overlay {
+    position: absolute;
+    width: inherit;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.store-container .container-overlay p {
+    color: white;
+    padding: 10px 5px 10px 5px;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.store-scroll-menu a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+/* per id styles */
+
+.shoeImg {
+    margin: 20px;
+}
+
+#logoutBtn:hover::after {
+  content: " - Log Out";
+}
