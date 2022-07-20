@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+}
 include_once "config.php";
 $db = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
