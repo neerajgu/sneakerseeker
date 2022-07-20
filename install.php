@@ -19,6 +19,6 @@
         catch (PDOException $e) {
             echo "<p>Error: {$e->getMessage()}</p>";
         }
-        ?>
+        ?> 
     </body>
 </html>
