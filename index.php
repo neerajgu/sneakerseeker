@@ -6,7 +6,7 @@ require_once 'config.php';
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Login | SS</title>
+    <title>SneakerSeeker | Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -32,7 +32,8 @@ require_once 'config.php';
             $sth->execute();
             $pwd = $sth->fetch();
             if (password_verify($_POST['password'], $pwd[0])) {
-              header("Location: https://atdpsites.berkeley.edu/nluo/p2/store.php");
+              $_SESSION['username'] = htmlspecialchars($_POST['username']);
+              header("Location: store.php");
             } else {
               echo "<p>Incorrect password or username.</p>";
             }
@@ -42,9 +43,9 @@ require_once 'config.php';
         }
         ?>
         <input id="username" type="text" name="username" maxlength="12" placeholder="Username"><br>
-        <input id="password" type="password" name="password" placeholder="Password">
+        <input id="password" type="password" name="password" minlength="8" placeholder="Password">
         <button type="submit">Lets Go!</button>
-        <p>No Account?<a href='/ngummalam/Project-2/signup'> Sign Up!</a></p>
+        <p>No Account? <a href='/ngummalam/Project-2/signup'>Sign Up!</a></p>
       </form>
     </div>
   </body>
