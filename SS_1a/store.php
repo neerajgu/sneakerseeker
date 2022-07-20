@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+}
+
 include_once "config.php";
 $db = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
@@ -35,7 +40,7 @@ $shoes = $shoes->fetchAll();
 function displayContainer(array $item)
 {
     echo
-    " 
+    "
     <a href=store.php?id={$item["id"]} title=\"{$item["shoeName"]} | {$item["colorWay"]}\">
     <div class=store-container>
         <img src=https://images.stockx.com/images/{$item["showImg"]}>

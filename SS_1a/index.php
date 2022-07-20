@@ -42,10 +42,10 @@ require_once 'config.php';
           }
         }
         ?>
-        <input id="username" type="text" name="username" maxlength="12" placeholder="Username"><br>
-        <input id="password" type="password" name="password" minlength="8" placeholder="Password">
+        <input id="username" type="text" name="username" placeholder="Username"><br>
+        <input id="password" type="password" name="password" placeholder="Password">
         <button type="submit">Lets Go!</button>
-        <p>No Account? <a href='/ngummalam/Project-2/signup'>Sign Up!</a></p>
+        <p>No Account? <a href='/ngummalam/SS_1a/signup'>Sign Up!</a></p>
       </form>
     </div>
   </body>
