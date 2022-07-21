@@ -227,3 +227,21 @@ html {
         opacity: 0;
     }
 }
+
+/*credits*/
+
+.creditBox {
+  overflow: hidden;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  width: 20%;
+  height: 10%;
+  background-color: gray;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+}
+
+.creditBox a {
+  color: #00ff38;
+}
