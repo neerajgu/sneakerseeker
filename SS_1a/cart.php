@@ -6,7 +6,7 @@ if (!isset($_SESSION['username'])) {
 include_once "config.php";
 $db = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
-$cart = $db->prepare("SELECT showImg, shoeName, colorWay, shoes.id FROM cart
+$cart = $db->prepare("SELECT showImg, shoeName, colorWay, shoeCost, shoes.id FROM cart
  JOIN shoes ON shoes.id=cart.shoe_id
  WHERE :currUser=cart.user_id");
 $cart->bindValue(":currUser", $_SESSION["id"]);
@@ -33,6 +33,9 @@ function displayContainer(array $item)
         <img src=https://images.stockx.com/images/{$item["showImg"]}>
         <div class=container-overlay>
             <p>{$item["shoeName"]}</p>
+        </div>
+        <div class=container-overlay-price>
+            <p>{$item["shoeCost"]}</p>
         </div>
     </div>
     </a>
