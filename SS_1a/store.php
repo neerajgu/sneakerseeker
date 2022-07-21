@@ -143,17 +143,17 @@ function displayContainer(array $item)
                 <img class=shoeImg src=https://images.stockx.com/images/{$shoe["showImg"]}>
             </div>
             <div class=infoContainer>
-                <h2 class=name>{$shoe["shoeName"]}</h2>
+                <h2 class=name id={$shoe["id"]}>{$shoe["shoeName"]} - {$shoe["id"]}</h2>
                 <div class=colorwrap><h3 class=color>{$shoe["colorWay"]}</h3> <img src=img/coloricon.png></div>
                 <hr id=sep>
                 <div class=wrap>
                     <h1 class=price>$ {$shoe["shoeCost"]}</h1>
-                    <a class=cart><div><p>Add to Cart</p></div></a>
+                    <div class=cart><p>Add to Cart</p></div>
                 </div>
             </div>
         </div>
 
-        <div id=cartNotif>{$shoe["shoeName"]}, {colorWay} added to cart</div>
+        <div id=cartNotif><strong>{$shoe["shoeName"]}, {$shoe["colorWay"]}</strong> added to <a href=cart.php>cart</a></div>
         ";
     }
     ?>
