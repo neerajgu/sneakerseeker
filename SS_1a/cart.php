@@ -41,6 +41,14 @@ function displayContainer(array $item)
     </a>
     ";
 }
+
+$cartItems = $db->prepare("SELECT showImg, shoeName, colorWay, shoeCost, shoes.id FROM cart
+ JOIN shoes ON shoes.id=cart.shoe_id
+ WHERE :currUser=cart.user_id");
+$cartItems->bindValue(":currUser", $_SESSION["id"]);
+$cartItems->execute();
+
+$cartItems = count($cartItems->fetchAll());
 ?>
 
 <!DOCTYPE html>
@@ -63,8 +71,19 @@ function displayContainer(array $item)
     <ul class=nav-bar>
         <li class=nav-home><a href=store.php>Home</a></li>
         <li><a id='logoutBtn' href='logout.php'><?php echo $_SESSION['username']; ?></a></li>
-        <li aria-current=page><a href=cart.php>Cart</a></li>
+        <li aria-current=page><a href=cart.php>Cart <strong><?php echo $cartItems?></strong></a></li>
         <li><a href='credits.php'>Credits</a></li>
+        <?php
+        $admin = $db->prepare("SELECT admin FROM users WHERE id=:currID");
+        $admin->bindValue(":currID", $_SESSION["id"]);
+        $admin->execute();
+
+        $admin = $admin->fetchAll();
+
+        if(!empty($admin) && $admin[0]["admin"] == "1") {
+            echo "<li><a href=admin.php><strong>AdminPanel<strong></a></li>";
+        }
+        ?>
     </ul>
 
     <div class=store-section>

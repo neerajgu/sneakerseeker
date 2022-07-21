@@ -58,12 +58,6 @@ function displayContainer(array $item)
     </a>
     ";
 }
-
-$admin = $db->prepare("SELECT admin FROM users WHERE id=:currID");
-$admin->bindValue(":currID", $_SESSION["id"]);
-$admin->execute();
-
-$admin = $admin->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -89,6 +83,12 @@ $admin = $admin->fetchAll();
         <li><a href=cart.php>Cart <strong><?php echo $cartItems?></strong></a></li>
         <li><a href='credits.php'>Credits</a></li>
         <?php
+        $admin = $db->prepare("SELECT admin FROM users WHERE id=:currID");
+        $admin->bindValue(":currID", $_SESSION["id"]);
+        $admin->execute();
+
+        $admin = $admin->fetchAll();
+
         if(!empty($admin) && $admin[0]["admin"] == "1") {
             echo "<li><a href=admin.php><strong>AdminPanel<strong></a></li>";
         }
