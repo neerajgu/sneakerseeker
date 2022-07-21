@@ -7,7 +7,7 @@ include_once "config.php";
 $db = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
 $cart = $db->prepare("SELECT showImg, shoeName, colorWay, shoes.id FROM cart
- JOIN shoes ON shoes.id=cart.shoe_id 
+ JOIN shoes ON shoes.id=cart.shoe_id
  WHERE :currUser=cart.user_id");
 $cart->bindValue(":currUser", $_SESSION["id"]);
 $cart->execute();
@@ -61,6 +61,7 @@ function displayContainer(array $item)
         <li class=nav-home><a href=store.php>Home</a></li>
         <li><a id='logoutBtn' href='logout.php'><?php echo $_SESSION['username']; ?></a></li>
         <li aria-current=page><a href=cart.php>Cart</a></li>
+        <li><a href='credits.php'>Credits</a></li>
     </ul>
 
     <div class=storeSection>
