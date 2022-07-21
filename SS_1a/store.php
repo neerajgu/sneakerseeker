@@ -63,7 +63,7 @@ function displayContainer(array $item)
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto+Slab|Roboto:300,400,500,700" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="store.js"></script>
+    <script src="javascript/store.js"></script>
 
     <title>SneakerSeeker | Home</title>
 </head>
@@ -73,6 +73,8 @@ function displayContainer(array $item)
         <li aria-current=page class=nav-home><a href=store.php>Home</a></li>
         <li><a id='logoutBtn' href='logout.php'><?php echo $_SESSION['username']; ?></a></li>
         <li><a href=cart.php>Cart</a></li>
+        <li><a href='credits.php'>Credits</a></li>
+
     </ul>
 
     <?php

@@ -11,6 +11,8 @@ require_once 'config.php';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/loginsignup.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script defer src="javascript/showpswd.js"></script>
   </head>
   <body>
     <?php
@@ -42,8 +44,8 @@ require_once 'config.php';
           }
         }
         ?>
-        <input id="username" type="text" name="username" placeholder="Username"><br>
-        <input id="password" type="password" name="password" placeholder="Password">
+        <input id="username" type="text" name="username" placeholder="Username" required ><br>
+        <input class='password' id="password" type="password" name="password" placeholder="Password" required >
         <button type="submit">Lets Go!</button>
         <p>No Account? <a href='/ngummalam/SS_1a/signup'>Sign Up!</a></p>
       </form>

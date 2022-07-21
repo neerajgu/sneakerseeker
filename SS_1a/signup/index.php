@@ -11,6 +11,8 @@ require_once '../config.php';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/loginsignup.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script defer src="../javascript/showpswd.js"></script>
   </head>
   <body>
     <!DOCTYPE html>
@@ -72,8 +74,8 @@ require_once '../config.php';
             }
             ?>
             <input required id="username" type="text" name="username" maxlength="12" placeholder="Username"><br>
-            <input required id="password" type="password" name="password" minlength="8" placeholder="Password"><br>
-            <input required id="password2" type="password" name="password2" minlength="8" placeholder="Confirm Password"><br>
+            <input class='password' required id="password" type="password" name="password" minlength="8" placeholder="Password"><br>
+            <input class='password' required id="password2" type="password" name="password2" minlength="8" placeholder="Confirm Password"><br>
             <button type="submit">Lets Go!</button>
           </form>
         </div>

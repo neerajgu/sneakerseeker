@@ -69,10 +69,6 @@ input {
   background-color: lightgray;
 }
 
-input:active {
-  border-color: #00ff38;
-}
-
 button {
   margin-top: 2%;
   font-family: 'Roboto', sans-serif;
