@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(12),
   `password` text,
+  `admin` boolean DEFAULT false,
   PRIMARY KEY (id)
 );
 CREATE TABLE IF NOT EXISTS `shoes` (
@@ -82,4 +83,4 @@ ALTER TABLE `cart`
 ADD FOREIGN KEY (shoe_id) REFERENCES shoes(`id`);
 
 ALTER TABLE `cart`
-ADD FOREIGN KEY (user_id) REFERENCES users(`id`), 
+ADD FOREIGN KEY (user_id) REFERENCES users(`id`),
