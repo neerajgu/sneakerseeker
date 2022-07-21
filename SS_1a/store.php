@@ -30,6 +30,14 @@ foreach ($distinctBrands as $brand) {
     $shoesByBrand[$brand["shoeBrand"]] = $shoes;
 }
 
+$cartItems = $db->prepare("SELECT showImg, shoeName, colorWay, shoeCost, shoes.id FROM cart
+ JOIN shoes ON shoes.id=cart.shoe_id
+ WHERE :currUser=cart.user_id");
+$cartItems->bindValue(":currUser", $_SESSION["id"]);
+$cartItems->execute();
+
+$cartItems = count($cartItems->fetchAll());
+
 /*
 $shoes = $db->prepare("SELECT id, showImg, shoeName FROM shoes ORDER BY shoeBrand");
 $shoes->execute();
@@ -72,7 +80,7 @@ function displayContainer(array $item)
     <ul class=nav-bar>
         <li aria-current=page class=nav-home><a href=store.php>Home</a></li>
         <li><a id='logoutBtn' href='logout.php'><?php echo $_SESSION['username']; ?></a></li>
-        <li><a href=cart.php>Cart</a></li>
+        <li><a href=cart.php>Cart <strong><?php echo $cartItems?></strong></a></li>
         <li><a href='credits.php'>Credits</a></li>
     </ul>
 
