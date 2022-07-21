@@ -74,7 +74,6 @@ function displayContainer(array $item)
         <li><a id='logoutBtn' href='logout.php'><?php echo $_SESSION['username']; ?></a></li>
         <li><a href=cart.php>Cart</a></li>
         <li><a href='credits.php'>Credits</a></li>
-
     </ul>
 
     <?php
@@ -150,7 +149,7 @@ function displayContainer(array $item)
                 <hr id=sep>
                 <div class=wrap>
                     <h1 class=price>$ {$shoe["shoeCost"]}</h1>
-                    <div class=cart><p>Add to Cart</p></div>
+                    <a class=cart href=cart.php?cart={$shoe["id"]}><p>Add to Cart</p></a>
                 </div>
             </div>
         </div>

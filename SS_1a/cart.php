@@ -7,19 +7,21 @@ include_once "config.php";
 $db = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
 $cart = $db->prepare("SELECT showImg, shoeName, colorWay, shoes.id FROM cart
- JOIN shoes WHERE shoes.id=cart.shoe_id 
- JOIN users WHERE :currUser=cart.user_id");
+ JOIN shoes ON shoes.id=cart.shoe_id 
+ WHERE :currUser=cart.user_id");
 $cart->bindValue(":currUser", $_SESSION["id"]);
 $cart->execute();
 $cart = $cart->fetchAll();
 
 //add to cart
-if (isset($_POST["cart"])) {
+if (isset($_GET["cart"])) {
     $insert = $db->prepare("INSERT INTO cart (shoe_id, user_id) VALUES (:givenShoe, :givenUID)");
-    $insert->bindValue(":givenShoe", $_POST["cart"]);
+    $insert->bindValue(":givenShoe", $_GET["cart"]);
     $insert->bindValue("givenUID", $_SESSION["id"]);
 
     $insert->execute();
+
+    header("Location: store.php?id={$_GET["cart"]}?success=1");
 }
 
 function displayContainer(array $item)
@@ -67,6 +69,7 @@ function displayContainer(array $item)
         </div>
         <div class=storeScrollMenu>
             <?php
+
             foreach ($cart as $shoe) {
                 displayContainer($shoe);
             }

@@ -1,86 +1,88 @@
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  font-family: 'Roboto', sans-serif;
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Roboto", sans-serif;
 }
 
 body {
-  background-image: url(../img/background.jpg);
-  background-size: cover;
+    background-image: url(../img/background.jpg);
+    background-size: cover;
 }
 
-p, h1 {
-  color: #00ff38;
-  text-shadow: 0px 1px black;
-  font-family: 'Roboto', sans-serif;
+p,
+h1 {
+    color: #00ff38;
+    text-shadow: 0px 1px black;
+    font-family: "Roboto", sans-serif;
 }
 
 a {
-  color: #00ff38;
+    color: #00ff38;
 }
 
 #formContainer {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  overflow: scroll;
-  display: flex;
-  width: 50%;
-  height: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(50%, 50%);
-  background-color: rgb(255, 255, 255, 0.1);
-  backdrop-filter: blur(3px);
-  border: 1px solid darkgray;
-  border-radius: 10px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: scroll;
+    display: flex;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, 50%);
+    background-color: rgb(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    border: 1px solid darkgray;
+    border-radius: 10px;
 }
 
 #formContainer::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 #logo {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  flex: 1;
-  width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex: 1;
+    width: 50%;
 }
 
 form {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 40px;
-  flex: 2;
-  text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 40px;
+    flex: 2;
+    text-align: left;
 }
 
 input {
-  display: block;
-  margin: auto;
-  width: 100%;
-  height: 8%;
-  padding: 1%;
-  border: 1px solid darkgray;
-  border-radius: 5px;
-  margin-top: 1px;
-  font-family: 'Roboto', sans-serif;
-  background-color: lightgray;
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 8%;
+    padding: 1%;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    margin-top: 1px;
+    font-family: "Roboto", sans-serif;
+    background-color: lightgray;
 }
 
 button {
-  margin-top: 2%;
-  font-family: 'Roboto', sans-serif;
-  border: 1px solid darkgray;
-  background-color: lightgray;
-  border-radius: 20px;
-  width: 80px;
-  height: 10%;
-  transition: 0.25s linear;
+    margin-top: 2%;
+    font-family: "Roboto", sans-serif;
+    border: 1px solid darkgray;
+    background-color: lightgray;
+    border-radius: 20px;
+    width: 80px;
+    height: 10%;
+    transition: 0.25s linear;
 }
 
 button:hover {
-  background-color: #00ff38;
-  box-shadow: 0 1px 2px black;
+    background-color: #00ff38;
+    box-shadow: 0 1px 2px black;
 }

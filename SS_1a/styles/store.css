@@ -185,6 +185,7 @@ html {
     text-align: center;
     font-weight: 700;
     background-color: rgb(67, 229, 121);
+    text-decoration: none;
 }
 
 #cartNotif {
@@ -226,22 +227,4 @@ html {
         bottom: 0;
         opacity: 0;
     }
-}
-
-/*credits*/
-
-.creditBox {
-  overflow: hidden;
-  margin: auto;
-  margin-top: 20px;
-  padding: 10px;
-  width: 20%;
-  height: 10%;
-  background-color: gray;
-  border: 1px solid darkgray;
-  border-radius: 10px;
-}
-
-.creditBox a {
-  color: #00ff38;
 }
