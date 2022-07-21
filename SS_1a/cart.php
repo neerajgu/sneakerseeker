@@ -67,11 +67,11 @@ function displayContainer(array $item)
         <li><a href='credits.php'>Credits</a></li>
     </ul>
 
-    <div class=storeSection>
-        <div class=storeLabel>
+    <div class=store-section>
+        <div class=store-label>
             <h2>Your Cart - <?php echo count($cart); ?> items</h2>
         </div>
-        <div class=storeScrollMenu>
+        <div class=store-scroll-menu>
             <?php
 
             foreach ($cart as $shoe) {
