@@ -1,0 +1,55 @@
+body, html {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+.nav-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+    position: sticky;
+}
+
+.nav-bar .nav-home {
+    float: left;
+}
+
+.nav-bar li {
+    float: right;
+}
+
+.nav-bar li a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-bar li a:visited {
+    color: white;
+}
+
+.nav-bar [aria-current="page"] {
+    background-color: rgb(72, 245, 129);
+}
+#logoutBtn:hover::after {
+    content: " - Log Out";
+}
+a {
+  color: #00ff38;
+  text-shadow: 0px 1px black;
+}
+.checkOut{
+   display:block;
+   /* border: 2px solid green; */
+   color: white;
+   background-color: #333;
+   width: 25%;
+   margin:auto;
+}
+.user{
+   /* border: 2px solid green; */
+   text-align: center;
+}
