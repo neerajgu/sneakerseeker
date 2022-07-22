@@ -89,6 +89,11 @@ $cartItems = count($cartItems->fetchAll());
     <div class=store-section>
         <div class=store-label>
             <h2>Your Cart - <?php echo count($cart); ?> items</h2>
+            <?php
+            if (count($cart) > 0) {
+              echo "<a href='clearcart.php'>Clear Cart</a>";
+            }
+            ?>
         </div>
         <div class=store-scroll-menu>
             <?php
@@ -98,7 +103,6 @@ $cartItems = count($cartItems->fetchAll());
             }
             ?>
          </br>
-         <a href="clearcart.php">Not feeling these items anymore? Clear Cart</a>
         </div>
     </div>
 

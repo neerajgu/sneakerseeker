@@ -117,3 +117,8 @@ html {
 #logoutBtn:hover::after {
     content: " - Log Out";
 }
+
+a {
+  color: #00ff38;
+  text-shadow: 0px 1px black;
+}
