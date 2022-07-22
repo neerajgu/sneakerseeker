@@ -97,6 +97,7 @@ $cartItems = count($cartItems->fetchAll());
                 displayContainer($shoe);
             }
             ?>
+            <a href="clearcart.php">Not feeling these items anymore? Clear Cart</a>
         </div>
     </div>
 
