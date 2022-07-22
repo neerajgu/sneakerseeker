@@ -1,5 +1,6 @@
 body * {
     font-family: "Roboto", sans-serif;
+    text-decoration: none;
 }
 
 body,
@@ -70,20 +71,41 @@ html {
 
 .store-container .container-overlay {
     position: absolute;
-    width: inherit;
+    width: 75%;
     bottom: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
+    height: 20%;
 }
 
 .store-container .container-overlay p {
     color: white;
-    padding: 10px 5px 10px 5px;
+    padding: 13px 0px 13px 5px;
     margin: 0;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 10px;
+}
+
+.store-container .container-overlay-price {
+    position: absolute;
+    width: 20%;
+    bottom: 0;
+    left: 75%;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 20%;
+}
+
+.store-container .container-overlay-price p {
+    color: white;
+    padding: 10px 5px 10px 0px;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 200;
 }
 
 .store-scroll-menu a {
