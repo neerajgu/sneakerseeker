@@ -7,7 +7,7 @@ body * {
 }
 
 body {
-    padding: 10px 10px 0 0;
+    padding: 0 0 0 0;
 }
 
 body,
@@ -46,4 +46,63 @@ html {
 
 .nav-bar [aria-current="page"] {
     background-color: rgb(72, 245, 129);
+}
+
+#logoutBtn:hover::after {
+    content: " - Log Out";
+}
+
+td {
+    font-weight: 400;
+}
+
+.admin0::after {
+    content: "false";
+}
+
+.admin1::after {
+    content: "true";
+}
+
+table {
+    padding: 0px;
+    margin: 10px;
+}
+
+th,
+td {
+    border: 1px solid black;
+}
+
+td p {
+    margin: 0;
+    margin-right: 5px;
+}
+
+h2.label {
+    text-decoration: underline;
+    margin: 10px;
+    margin-top: 15px;
+}
+
+.long {
+    max-width: 15em;
+    min-width: 8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.editor {
+    border: 0;
+}
+
+input {
+    display: inline-block;
+    margin: 0;
+    margin-right: 5px;
+}
+
+.off {
+    display: none;
 }

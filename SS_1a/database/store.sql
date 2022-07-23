@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `admin` boolean DEFAULT false,
   PRIMARY KEY (id)
 );
+drop table `shoes`;
 CREATE TABLE IF NOT EXISTS `shoes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `shoeName` text,
@@ -78,6 +79,7 @@ VALUES
    ('adidas-Forum-Low-Xiangi.jpg?fit=fill&bg=FFFFFF&w=480&h=320&fm=avif&auto=compress&dpr=1&trim=color&updated_at=1642573026&q=80', 'Adidas Forum Low', 'Adidas', 'Xiangi',85),
    ('adidas-Forum-Low-Yoyogi-Park.jpg?fit=fill&bg=FFFFFF&w=480&h=320&fm=avif&auto=compress&dpr=1&trim=color&updated_at=1624648481&q=80', 'Adidas Forum Low', 'Adidas', 'Yoyogi Park',106),
    ('adidas-Forum-Low-M-Ms-Red-Product.jpg?fit=fill&bg=FFFFFF&w=480&h=320&fm=avif&auto=compress&dpr=1&trim=color&updated_at=1654263904&q=80', 'Adidas Forum Low', 'Adidas', 'M&M Red',134);
+END IF;
 
 ALTER TABLE `cart`
 ADD FOREIGN KEY (shoe_id) REFERENCES shoes(`id`);

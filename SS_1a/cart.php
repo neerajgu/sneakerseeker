@@ -17,7 +17,7 @@ $cart = $cart->fetchAll();
 if (isset($_GET["cart"])) {
     $insert = $db->prepare("INSERT INTO cart (shoe_id, user_id) VALUES (:givenShoe, :givenUID)");
     $insert->bindValue(":givenShoe", $_GET["cart"]);
-    $insert->bindValue("givenUID", $_SESSION["id"]);
+    $insert->bindValue(":givenUID", $_SESSION["id"]);
 
     $insert->execute();
 
@@ -62,7 +62,7 @@ $cartItems = count($cartItems->fetchAll());
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto+Slab|Roboto:300,400,500,700" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="store.js"></script>
+    <script src="javascript/store.js"></script>
 
     <title>SneakerSeeker | Cart</title>
 </head>
@@ -71,7 +71,7 @@ $cartItems = count($cartItems->fetchAll());
     <ul class=nav-bar>
         <li class=nav-home><a href=store.php>Home</a></li>
         <li><a id='logoutBtn' href='logout.php'><?php echo $_SESSION['username']; ?></a></li>
-        <li aria-current=page><a href=cart.php>Cart <strong><?php echo $cartItems?></strong></a></li>
+        <li aria-current=page><a href=cart.php>Cart <strong><?php echo $cartItems ?></strong></a></li>
         <li><a href='credits.php'>Credits</a></li>
         <?php
         $admin = $db->prepare("SELECT admin FROM users WHERE id=:currID");
@@ -80,7 +80,7 @@ $cartItems = count($cartItems->fetchAll());
 
         $admin = $admin->fetchAll();
 
-        if(!empty($admin) && $admin[0]["admin"] == "1") {
+        if (!empty($admin) && $admin[0]["admin"] == "1") {
             echo "<li><a href=admin.php><strong>AdminPanel<strong></a></li>";
         }
         ?>
@@ -91,8 +91,8 @@ $cartItems = count($cartItems->fetchAll());
             <h2>Your Cart - <?php echo count($cart); ?> items</h2>
             <?php
             if (count($cart) > 0) {
-              echo "<a href='clearcart.php'>Clear Cart</a></br>";
-              echo "<a href='checkout.php'>Done Shopping?  Cheack Out</a>";
+                echo "<a href='clearcart.php'>Clear Cart</a></br>";
+                echo "<a href='checkout.php'>Done Shopping?  Cheack Out</a>";
             }
             ?>
         </div>
@@ -103,7 +103,7 @@ $cartItems = count($cartItems->fetchAll());
                 displayContainer($shoe);
             }
             ?>
-         </br>
+            </br>
         </div>
     </div>
 
