@@ -4,6 +4,7 @@ if (!isset($_SESSION['username'])) {
     header("Location: index.php");
 }
 require_once"config.php";
+$displayForm=true;
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -54,7 +55,9 @@ require_once"config.php";
 
             if(password_verify(htmlspecialchars($_POST['password']),$password['password']) == true){
                if($check == 1){
-                  header("Location: store.php");
+                  $displayForm = false;
+                  echo"</br>";
+                  echo"<h2>Order Placed, thank you for shopping Sneaker Seaker</h2>";
                }
             }
             else{
@@ -76,12 +79,13 @@ require_once"config.php";
           echo "<p>Error: {$e->getMessage()}</p>";
       }
        ?>
+       <?php if($displayForm){?>
        <p></p>
        <div class="checkOut">
           <div class="user">
              <?php echo htmlspecialchars($_SESSION['username']) ."&#39;s Checkout</br>"; ?>
           </div>
-         <div class="totalITems">
+         <div class="totalItems">
             Total Items: <?php echo count($cart);?>
          </div>
          <div class="total">
@@ -91,6 +95,7 @@ require_once"config.php";
             <input type="text" name="password" placeholder="Enter Password To Confirm" required>
             <input type="submit" name="Checkout">
          </form>
+      <?php } ?>
        </div>
    </body>
 </html>

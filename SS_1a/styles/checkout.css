@@ -48,8 +48,12 @@ a {
    background-color: #333;
    width: 25%;
    margin:auto;
+   font-size: 24pt;
 }
-.user{
-   /* border: 2px solid green; */
+.user, .total, .totalItems, .password{
+   border: 2px solid #444;
+   text-align: center;
+}
+h2{
    text-align: center;
 }
