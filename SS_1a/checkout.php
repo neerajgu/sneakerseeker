@@ -20,13 +20,15 @@ $displayForm = true;
 </head>
 
 <body>
+   <!-- Nav Bar -->
    <ul class=nav-bar>
       <li aria-current=page class=nav-home><a href=store.php>Home</a></li>
-      <li><a id='logoutBtn' href='logout.php'><?php echo $_SESSION['username']; ?></a></li>
-      <li><a href=cart.php>Cart <strong><?php echo $cartItems ?></strong></a></li>
-      <li><a href='credits.php'>Credits</a></li>
+      <li><a id='logoutBtn' href='logout.php'><?php echo $_SESSION['username']; ?></a></li>  <!-- User Name -->
+      <li><a href=cart.php>Cart <strong><?php echo $cartItems ?></strong></a></li> <!-- Cart Items -->
+      <li><a href='credits.php'>Credits</a></li> <!-- Credits -->
       <?php
       try {
+         // Admin Role
          $db = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
          $admin = $db->prepare("SELECT admin FROM users WHERE id=:currID");
          $admin->bindValue(":currID", $_SESSION["id"]);
@@ -44,35 +46,44 @@ $displayForm = true;
    </ul>
    <?php
    try {
+      // Set up PDO
       $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
+      // Check if they have entered password to verify login
       if (isset($_POST['password'])) {
          $sth = $dbh->prepare("SELECT * FROM users WHERE id=:loginId");
          $login = $_SESSION['id'];
          $sth->bindValue(":loginId", $login);
          $sth->execute();
          $password = $sth->fetch();
-
+         // Check if password enterd is user Password
          if (password_verify(htmlspecialchars($_POST['password']), $password['password']) == true) {
             $sth = $dbh->prepare("DELETE FROM cart WHERE user_id=:givenUID");
             $sth->bindValue("givenUID", $_SESSION["id"]);
             $check = $sth->execute();
+            // If it passes then say thank you
             if ($check == 1) {
                $displayForm = false;
                echo "</br>";
                echo "<h2>Order Placed, thank you for shopping Sneaker Seaker</h2>";
-            } else {
+            }
+            // Do an error fi exec did not work
+            else {
                echo "</br>";
                echo "<h2>There was an error in checking out.</h2>";
             }
+
          } else {
+            // password wrong
             echo "Password is Invalid";
          }
       }
+      // Getting cart items to get total item number
       $cart = $dbh->prepare("SELECT * FROM cart WHERE :currUser=cart.user_id");
       $cart->bindValue(":currUser", $_SESSION["id"]);
       $cart->execute();
       $cart = $cart->fetchAll();
 
+      // Cost of cart
       $cartItems = $dbh->prepare("SELECT SUM(shoeCost) FROM cart JOIN shoes ON shoes.id=cart.shoe_id WHERE :currUser=cart.user_id");
       $cartItems->bindValue(":currUser", $_SESSION["id"]);
       $cartItems->execute();
@@ -81,6 +92,7 @@ $displayForm = true;
       echo "<p>Error: {$e->getMessage()}</p>";
    }
    ?>
+   <!-- Just to remove the form after checkout -->
    <?php if ($displayForm) { ?>
       <p></p>
       <div class="checkOut">
@@ -97,7 +109,7 @@ $displayForm = true;
             <input type="text" name="password" placeholder="Enter Password To Confirm" required>
             <input type="submit" name="Checkout">
          </form>
-      <?php } ?>
+      <?php } ?> <!-- Closing the if statement -->
       </div>
 </body>
 
