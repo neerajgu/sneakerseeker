@@ -38,7 +38,7 @@ require_once '../config.php';
       <form method='post' target='_self'>
         <h1>Sign Up</h1>
         <?php
-        if ($_SESSION['visits'] > 0 && $_POST['username'] != "" && $_POST['password'] != "" && $_POST['password2'] != "") {
+        if ($_SESSION['visits'] > 0 && isset($_POST['username']) && $_POST['username'] != "" && isset($_POST['password']) && $_POST['password'] != "" && isset($_POST['password2']) && $_POST['password2'] != "") {
           if (strlen($_POST['username']) <= 12 && $_POST['password'] == $_POST['password2'] && strlen($_POST['password']) >= 8) {
             try {
               $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);

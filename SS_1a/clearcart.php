@@ -7,10 +7,11 @@ try {
     $sth->bindValue("givenUID", $_SESSION["id"]);
     $check = $sth->execute();
     if($check == 1){
-      header("Location: cart.php");
-   }
+        header("Location: cart.php");
+    } else {
+        echo "unknown user, bad data.";
+    }
 }
 catch (PDOException $e) {
     echo "<p>Error: {$e->getMessage()}</p>";
 }
- ?>

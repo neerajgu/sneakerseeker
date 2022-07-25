@@ -101,8 +101,10 @@ $cartItems = count($cartItems->fetchAll());
             $shoes = $shoes->fetchAll();
 
             foreach ($shoes as $shoe) {
+                // each db row is echoed and can be edited using hidden forms revealed by js
+                // input type hiddens are for sending the type of process to adminedit (edit, delete) and target id
                 echo "
-                <form action=adminedit.php method=post id=editShoes{$shoe["id"]}></form>
+                <form action=adminedit.php?id={$shoe["id"]} method=post id=editShoes{$shoe["id"]}></form>
 
                 <tr>
                     <td>
@@ -130,10 +132,10 @@ $cartItems = count($cartItems->fetchAll());
                     </td>
                     <td class=editor>
                         <button class=editButton>Edit</button>
+                        <a href=adminedit.php?delete=1&id={$shoe["id"]}><button class=deleteButton>Delete</button></a>
                         
                         <button class=\"off cancelButton\">Cancel</button>
 
-                        <input type=hidden value={$shoe["id"]} name=id form=editShoes{$shoe["id"]}></input>
                         <input type=submit value=Submit class=\"off submitButton\" form=editShoes{$shoe["id"]}></input>
                     </td>
                 </tr>

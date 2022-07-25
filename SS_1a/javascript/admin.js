@@ -2,10 +2,10 @@ $(document).ready(() => {
     $(".editButton").on("click", "", (event) => {
         //disable self visiblity
         $(event.currentTarget).toggleClass("off");
-        //in edit tools cell, find submit and cancel button, toggle visiblity
+        //in edit tools cell, find submit, delete and cancel button, toggle visiblity
         $(event.currentTarget)
             .parent()
-            .find(".submitButton, .cancelButton")
+            .find(".submitButton, .cancelButton, .deleteButton")
             .toggleClass("off");
 
         //turn on edit inputs, disable
@@ -20,7 +20,7 @@ $(document).ready(() => {
         //in edit tools cell, find submit and edit button, toggle visiblity
         $(event.currentTarget)
             .parent()
-            .find(".submitButton, .editButton")
+            .find(".submitButton, .editButton, .deleteButton")
             .toggleClass("off");
 
         // vice versa
