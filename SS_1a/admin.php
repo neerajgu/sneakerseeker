@@ -52,6 +52,9 @@ $cartItems = count($cartItems->fetchAll());
         ?>
     </ul>
 
+    <a class=db href=drop.php>Drop Tables</a> </br>
+    <a class=db href=install.php>Install Default Tables</a>
+
     <h2 class=label>Users</h2>
     <table class=users>
         <thead>
@@ -81,7 +84,17 @@ $cartItems = count($cartItems->fetchAll());
     </table>
 
     <h2 class=label>Shoes</h2>
-    <a></a>
+    <button class="createButton">Create Shoe</button>
+    <button class="cancelCreateButton off">Cancel</button>
+
+    <form class="off add" action=adminedit.php?process=add method=post required>
+        <input type=text placeholder="Shoe Name" name=shoeName></input>
+        <input type=text placeholder="Shoe Brand" name=shoeBrand></input>
+        <input type=text placeholder="Shoe Color" name=colorWay></input>
+        <input type=number placeholder="Shoe Cost" name=shoeCost></input>
+        <input type=text placeholder="Image File" name=showImg></input>
+        <input type=submit value=Submit></input>
+    </form>
 
     <table class=shoes>
         <thead>
@@ -104,7 +117,7 @@ $cartItems = count($cartItems->fetchAll());
                 // each db row is echoed and can be edited using hidden forms revealed by js
                 // input type hiddens are for sending the type of process to adminedit (edit, delete) and target id
                 echo "
-                <form action=adminedit.php?id={$shoe["id"]} method=post id=editShoes{$shoe["id"]}></form>
+                <form action=adminedit.php?process=edit&id={$shoe["id"]} method=post id=editShoes{$shoe["id"]}></form>
 
                 <tr>
                     <td>
@@ -132,7 +145,7 @@ $cartItems = count($cartItems->fetchAll());
                     </td>
                     <td class=editor>
                         <button class=editButton>Edit</button>
-                        <a href=adminedit.php?delete=1&id={$shoe["id"]}><button class=deleteButton>Delete</button></a>
+                        <a href=adminedit.php?process=delete&id={$shoe["id"]}><button class=deleteButton>Delete</button></a>
                         
                         <button class=\"off cancelButton\">Cancel</button>
 

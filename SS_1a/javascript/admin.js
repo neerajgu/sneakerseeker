@@ -28,4 +28,18 @@ $(document).ready(() => {
         row.find("p.long").toggleClass("off");
         row.find("input:not(.submitButton)").toggleClass("off");
     });
+
+    $(".createButton").on("click", "", (event) => {
+        //disable self visiblity
+        $(event.currentTarget).toggleClass("off");
+        $(".cancelCreateButton").toggleClass("off");
+        $("form.add").toggleClass("off");
+    });
+
+    $(".cancelCreateButton").on("click", "", (event) => {
+        //disable self visiblity
+        $(event.currentTarget).toggleClass("off");
+        $(".createButton").toggleClass("off");
+        $("form.add").toggleClass("off");
+    });
 });
