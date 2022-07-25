@@ -36,7 +36,7 @@ if (empty($admin) || $admin[0]["admin"] != "1") {
 
         // remove existing admin
         $dbh->exec("DELETE FROM `users` WHERE admin=1");
-        $admin = $dbh->prepare("INSERT INTO `users` (`id`, `username`, `password`, `admin`) VALUES (1, \"admin\", :pass, true)");
+        $admin = $dbh->prepare("INSERT INTO `users` (`id`, `username`, `password`, `admin`) VALUES (1, 'admin', :pass, true)");
         $admin->bindValue(":pass", $pass);
         $admin->execute();
 
