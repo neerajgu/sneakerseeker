@@ -11,7 +11,7 @@ $admin = $admin->fetchAll();
 
 if (empty($admin) || $admin[0]["admin"] != "1") {
     //not admin
-    header("Location: store.php");
+    //header("Location: store.php");
 }
 ?>
 
