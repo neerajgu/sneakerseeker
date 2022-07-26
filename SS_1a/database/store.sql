@@ -1,4 +1,4 @@
-
+-- Users Table
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(12),
@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (id)
 );
 drop table `shoes`;
+-- All the shoes are stored here
 CREATE TABLE IF NOT EXISTS `shoes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `shoeName` text,
@@ -16,6 +17,7 @@ CREATE TABLE IF NOT EXISTS `shoes` (
   `shoeCost` int,
   PRIMARY KEY (id)
 );
+-- Cart
 CREATE TABLE IF NOT EXISTS `cart` (
   `id` int NOT NULL AUTO_INCREMENT,
   `shoe_id` int NOT NULL,
