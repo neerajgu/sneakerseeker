@@ -99,15 +99,18 @@ $displayForm = true;
          <div class="user">
             <?php echo htmlspecialchars($_SESSION['username']) . "&#39;s Checkout</br>"; ?>
          </div>
+         <hr>
          <div class="totalItems">
             <p>Total Items: <?php echo count($cart); ?></p>
          </div>
+         <hr>
          <div class="total">
-            <p>Total Cost: <?php echo $cartCost[0]; ?></p>
+            <p>Total Cost: $<?php echo $cartCost[0]; ?>.00</p>
          </div>
+         <hr>
          <form class="password" action="checkout.php" method="post">
-            <input type="text" name="password" placeholder="Enter Password To Confirm" required>
-            <input type="submit" name="Checkout">
+            <input type="text" name="password" placeholder="Confirm Password" required>
+            <button type="submit">Checkout</button>
          </form>
       <?php } ?> <!-- Closing the if statement -->
       </div>
