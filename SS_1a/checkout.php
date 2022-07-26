@@ -64,7 +64,7 @@ $displayForm = true;
             if ($check == 1) {
                $displayForm = false;
                echo "</br>";
-               echo "<h2>Order Placed, thank you for shopping Sneaker Seaker</h2>";
+               echo "<h2>get scammed</h2>";
             }
             // Do an error fi exec did not work
             else {
