@@ -27,6 +27,7 @@ require_once '../config.php';
 
   <body>
     <?php
+    //checking session count
     if (isset($_SESSION['visits'])) {
       $_SESSION['visits']++;
     } else {
@@ -38,7 +39,9 @@ require_once '../config.php';
       <form method='post' target='_self'>
         <h1>Sign Up</h1>
         <?php
+        //validating form completion
         if ($_SESSION['visits'] > 0 && isset($_POST['username']) && $_POST['username'] != "" && isset($_POST['password']) && $_POST['password'] != "" && isset($_POST['password2']) && $_POST['password2'] != "") {
+          //validation inputs
           if (strlen($_POST['username']) <= 12 && $_POST['password'] == $_POST['password2'] && strlen($_POST['password']) >= 8) {
             try {
               $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
@@ -46,6 +49,7 @@ require_once '../config.php';
               $sth->bindValue(":username", htmlspecialchars($_POST['username']));
               $sth->execute();
               $pwd = $sth->fetch();
+              //only loggin in if password isnt set (meaning there is no account with this username)
               if (!$pwd) {
                 $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
                 $sth = $dbh->prepare("INSERT INTO users (`username`, `password`) VALUES (:username, :password)");
@@ -64,6 +68,7 @@ require_once '../config.php';
               echo "<p>Error: {$e->getMessage()}</p>";
             }
           } else {
+            //finding and printing other possible errors
             if (strlen($_POST['username']) > 12) {
               echo "<p>A username can be up to twelve characters.</p>";
             } elseif (strlen($_POST['password']) < 8) {
