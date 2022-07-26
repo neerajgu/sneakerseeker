@@ -1,4 +1,4 @@
--- Users Table
+
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(12),
@@ -6,8 +6,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `admin` boolean DEFAULT false,
   PRIMARY KEY (id)
 );
-drop table `shoes`;
--- All the shoes are stored here
+
 CREATE TABLE IF NOT EXISTS `shoes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `shoeName` text,
@@ -17,7 +16,6 @@ CREATE TABLE IF NOT EXISTS `shoes` (
   `shoeCost` int,
   PRIMARY KEY (id)
 );
--- Cart
 CREATE TABLE IF NOT EXISTS `cart` (
   `id` int NOT NULL AUTO_INCREMENT,
   `shoe_id` int NOT NULL,
@@ -81,10 +79,9 @@ VALUES
    ('adidas-Forum-Low-Xiangi.jpg?fit=fill&bg=FFFFFF&w=480&h=320&fm=avif&auto=compress&dpr=1&trim=color&updated_at=1642573026&q=80', 'Adidas Forum Low', 'Adidas', 'Xiangi',85),
    ('adidas-Forum-Low-Yoyogi-Park.jpg?fit=fill&bg=FFFFFF&w=480&h=320&fm=avif&auto=compress&dpr=1&trim=color&updated_at=1624648481&q=80', 'Adidas Forum Low', 'Adidas', 'Yoyogi Park',106),
    ('adidas-Forum-Low-M-Ms-Red-Product.jpg?fit=fill&bg=FFFFFF&w=480&h=320&fm=avif&auto=compress&dpr=1&trim=color&updated_at=1654263904&q=80', 'Adidas Forum Low', 'Adidas', 'M&M Red',134);
-END IF;
 
 ALTER TABLE `cart`
 ADD FOREIGN KEY (shoe_id) REFERENCES shoes(`id`);
 
 ALTER TABLE `cart`
-ADD FOREIGN KEY (user_id) REFERENCES users(`id`),
+ADD FOREIGN KEY (user_id) REFERENCES users(`id`);
