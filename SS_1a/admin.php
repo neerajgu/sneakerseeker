@@ -75,6 +75,7 @@ $cartItems = count($cartItems->fetchAll());
                 $delDisabled = ($user["admin"] == 1) ? "disabled title=\"Cannot delete admin accounts\"" : "";
                 $editDisabled = ($user["id"] == $_SESSION["id"]) ? "disabled title=\"Cannot edit permissions of your own account\"" : "";
 
+                // i swear forms do not affect the loading time at all 
                 echo "
                 <form action=adminedit.php?table=user&process=edit&id={$user["id"]} method=post id=editUsers{$user["id"]}></form>
                 <tr>
