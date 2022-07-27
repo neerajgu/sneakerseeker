@@ -80,7 +80,7 @@ function displayContainer(array $item)
     <ul class=nav-bar>
         <li aria-current=page class=nav-home><a href=store.php>Home</a></li>
         <li><a id='logoutBtn' href='logout.php'><?php echo $_SESSION['username']; ?></a></li>
-        <li><a href=cart.php>Cart <strong><?php echo $cartItems?></strong></a></li>
+        <li><a href=cart.php>Cart <strong><?php echo $cartItems ?></strong></a></li>
         <li><a href='credits.php'>Credits</a></li>
         <?php
         $admin = $db->prepare("SELECT admin FROM users WHERE id=:currID");
@@ -89,7 +89,7 @@ function displayContainer(array $item)
 
         $admin = $admin->fetchAll();
 
-        if(!empty($admin) && $admin[0]["admin"] == "1") {
+        if (!empty($admin) && $admin[0]["admin"] == "1") {
             echo "<li><a href=admin.php><strong>AdminPanel<strong></a></li>";
         }
         ?>
@@ -137,7 +137,7 @@ function displayContainer(array $item)
             </div>";
 
         foreach ($shoesByBrand as $brand) {
-            echo "<div class=store-scroll-menu {$brand[0]["brand"]}>";
+            echo "<div class=store-scroll-menu id={$brand[0]["shoeBrand"]}>";
             foreach ($brand as $shoe) {
                 displayContainer($shoe);
             }

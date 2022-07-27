@@ -18,6 +18,7 @@ require_once 'config.php';
 
 <body>
   <?php
+  //checking visits
   if (isset($_SESSION['visits'])) {
     $_SESSION['visits']++;
   } else {
@@ -28,6 +29,8 @@ require_once 'config.php';
     <form method='post' target='_self'>
       <h1>Log In</h1>
       <?php
+      //validating form
+      //i decided not to add any of the length validation because that ended up changing several times. (e- the admin account has a username of 5 chars)
       if ($_SESSION['visits'] > 0 && $_POST['username'] != "" && $_POST['password'] != "") {
         try {
           $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
@@ -35,11 +38,13 @@ require_once 'config.php';
           $sth->bindValue(":username", htmlspecialchars($_POST['username']));
           $sth->execute();
           $pwd = $sth->fetch();
+          //making sure the password matches.
           if (password_verify($_POST['password'], $pwd['password'])) {
             $_SESSION['username'] = htmlspecialchars($_POST['username']);
             $_SESSION['id'] = $pwd['id'];
             header("Location: store.php");
           } else {
+            //its possible the user entered the correct password but accidentally entered someone else's username... so its incorrect pwd or usr.
             echo "<p>Incorrect password or username.</p>";
           }
         } catch (PDOException $e) {

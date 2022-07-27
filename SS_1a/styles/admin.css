@@ -52,6 +52,18 @@ html {
     content: " - Log Out";
 }
 
+a.db,
+.createButton,
+.cancelCreateButton,
+form.add {
+    margin: 10px;
+}
+
+.cancelCreateButton:not(.off),
+form.add:not(.off) {
+    display: inline-block;
+}
+
 td {
     font-weight: 400;
 }

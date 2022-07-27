@@ -92,7 +92,7 @@ $cartItems = count($cartItems->fetchAll());
             <?php
             if (count($cart) > 0) {
                 echo "<a href='clearcart.php'>Clear Cart</a></br>";
-                echo "<a href='checkout.php'>Done Shopping?  Cheack Out</a>";
+                echo "<a href='checkout.php'>Check Out</a>";
             }
             ?>
         </div>

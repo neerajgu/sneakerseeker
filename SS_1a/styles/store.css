@@ -84,6 +84,7 @@ html {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-decoration: none;
 }
 
 .store-scroll-menu a {
@@ -232,17 +233,17 @@ html {
 /*credits*/
 
 .creditBox {
-  overflow: hidden;
-  margin: auto;
-  margin-top: 20px;
-  padding: 10px;
-  width: 20%;
-  height: 10%;
-  background-color: gray;
-  border: 1px solid darkgray;
-  border-radius: 10px;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    width: 20%;
+    height: 10%;
+    background-color: gray;
+    border: 1px solid darkgray;
+    border-radius: 10px;
 }
 
 .creditBox a {
-  color: #00ff38;
+    color: #00ff38;
 }
