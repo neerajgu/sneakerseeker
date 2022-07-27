@@ -118,3 +118,23 @@ input {
 .off {
     display: none;
 }
+
+.asc,
+.desc {
+    color: white;
+    background-color: black;
+}
+
+.asc::after {
+    content: " ▼";
+    font-size: smaller;
+}
+
+.desc::after {
+    content: " ▲";
+    font-size: smaller;
+}
+
+th a {
+    text-decoration: none;
+}

@@ -59,23 +59,44 @@ $cartItems = count($cartItems->fetchAll());
     <table class=users>
         <thead>
             <tr>
-                <th>id</th>
-                <th>username</th>
-                <th>admin?</th>
+                <th class=id>id</th>
+                <th class=username>username</th>
+                <th class="admin">admin?</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $users = $db->prepare("SELECT * FROM users ORDER BY admin DESC");
+            $users = $db->prepare("SELECT * FROM users");
             $users->execute();
             $users = $users->fetchAll();
 
             foreach ($users as $user) {
+                // further verification on backend
+                $delDisabled = ($user["admin"] == 1) ? "disabled title=\"Cannot delete admin accounts\"" : "";
+                $editDisabled = ($user["id"] == $_SESSION["id"]) ? "disabled title=\"Cannot edit permissions of your own account\"" : "";
+
                 echo "
+                <form action=adminedit.php?table=user&process=edit&id={$user["id"]} method=post id=editUsers{$user["id"]}></form>
                 <tr>
                     <td>{$user["id"]}</td>
-                    <td>" . htmlspecialchars($user["username"]) . "</td>
-                    <td class=admin{$user["admin"]}></td>
+                    <td><p >" . htmlspecialchars($user["username"]) . "</p></td>
+                    <td>
+                        <p class=\"admin{$user["admin"]} long\"></p>
+                        <select class=off name=userAdmin form=editUsers{$user["id"]}>
+                            <option selected disabled>Select permission level</option>
+                            <option value=0>False</option>
+                            <option value=1>True</option>
+                        </select>
+                    </td>
+                    
+                    <td class=editor>
+                        <button class=editButton {$editDisabled}>Edit</button>
+                        <a href=adminedit.php?table=user&process=delete&id={$user["id"]}><button class=deleteButton {$delDisabled}>Delete</button></a>
+
+                        <button class=\"off cancelButton\">Cancel</button>
+
+                        <input type=submit value=Submit class=\"off submitButton\" form=editUsers{$user["id"]}></input>
+                    </td>
                 </tr>
             ";
             }
@@ -99,12 +120,12 @@ $cartItems = count($cartItems->fetchAll());
     <table class=shoes>
         <thead>
             <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>brand</th>
-                <th>color</th>
-                <th>price</th>
-                <th>img</th>
+                <th class="id">id</th>
+                <th class=shoeName>name</th>
+                <th class=shoeBrand>brand</th>
+                <th class=colorWay>color</th>
+                <th class=shoeCost>price</th>
+                <th class=showImg>img</th>
             </tr>
         </thead>
         <tbody>
@@ -117,36 +138,36 @@ $cartItems = count($cartItems->fetchAll());
                 // each db row is echoed and can be edited using hidden forms revealed by js
                 // input type hiddens are for sending the type of process to adminedit (edit, delete) and target id
                 echo "
-                <form action=adminedit.php?process=edit&id={$shoe["id"]} method=post id=editShoes{$shoe["id"]}></form>
+                <form action=adminedit.php?table=shoe&process=edit&id={$shoe["id"]} method=post id=editShoes{$shoe["id"]}></form>
 
                 <tr>
                     <td>
-                        <p class=text{$shoe["id"]}>{$shoe["id"]}</p>
+                        <p>{$shoe["id"]}</p>
                     </td>
                     <td>
-                        <p class=long text{$shoe["id"]}>{$shoe["shoeName"]}</p>
+                        <p class=long>" . htmlspecialchars($shoe["shoeName"]) . "</p>
                         <input class=off type=text placeholder=\"{$shoe["shoeName"]}\" value=\"{$shoe["shoeName"]}\" name=shoeName form=editShoes{$shoe["id"]}></input>
                     </td>
                     <td>
-                        <p class=long text{$shoe["id"]}>{$shoe["shoeBrand"]}</p>
+                        <p class=long>" . htmlspecialchars($shoe["shoeBrand"]) . "</p>
                         <input class=off type=text placeholder=\"{$shoe["shoeBrand"]}\" value=\"{$shoe["shoeBrand"]}\" name=shoeBrand form=editShoes{$shoe["id"]}></input>
                     </td>
                     <td>
-                        <p class=long text{$shoe["id"]}>{$shoe["colorWay"]}</p>
+                        <p class=long>" . htmlspecialchars($shoe["colorWay"]) . "</p>
                         <input class=off type=text placeholder=\"{$shoe["colorWay"]}\" value=\"{$shoe["colorWay"]}\" name=colorWay form=editShoes{$shoe["id"]}></input>
                     </td>
                     <td>
-                        <p class=long text{$shoe["id"]}>{$shoe["shoeCost"]}</p>
+                        <p class=long>" . htmlspecialchars($shoe["shoeCost"]) . "</p>
                         <input class=off type=text placeholder=\"{$shoe["shoeCost"]}\" value=\"{$shoe["shoeCost"]}\" name=shoeCost form=editShoes{$shoe["id"]}></input>
                     </td>
                     <td>
-                        <p class=long text{$shoe["id"]}>{$shoe["showImg"]}</p>
+                        <p class=long>" . htmlspecialchars($shoe["showImg"]) . "</p>
                         <input class=off type=text placeholder=\"{$shoe["showImg"]}\" value=\"{$shoe["showImg"]}\" name=showImg form=editShoes{$shoe["id"]}></input>
                     </td>
                     <td class=editor>
                         <button class=editButton>Edit</button>
-                        <a href=adminedit.php?process=delete&id={$shoe["id"]}><button class=deleteButton>Delete</button></a>
-                        
+                        <a href=adminedit.php?table=shoe&process=delete&id={$shoe["id"]}><button class=deleteButton>Delete</button></a>
+
                         <button class=\"off cancelButton\">Cancel</button>
 
                         <input type=submit value=Submit class=\"off submitButton\" form=editShoes{$shoe["id"]}></input>

@@ -105,7 +105,7 @@ function displayContainer(array $item)
                 <h2>Featured Brands</h2>
             </div>
             <div class=store-scroll-menu>
-                <a>
+                <a href=#Nike>
                     <div class=store-container>
                         <img src=img/nike.png>
                         <div class=container-overlay>
@@ -113,7 +113,7 @@ function displayContainer(array $item)
                         </div>
                     </div>
                 </a>
-                <a>
+                <a href=#Puma>
                     <div class=store-container>
                         <img src=img/puma.jpeg>
                         <div class=container-overlay>
@@ -121,7 +121,7 @@ function displayContainer(array $item)
                         </div>
                     </div>
                 </a>
-                <a>
+                <a href=#Adidas>
                     <div class=store-container>
                         <img src=img/adidas.png>
                         <div class=container-overlay>
@@ -137,6 +137,10 @@ function displayContainer(array $item)
             </div>";
 
         foreach ($shoesByBrand as $brand) {
+            echo
+            "<div class=store-label>
+                <h3>{$brand[0]["shoeBrand"]}</h3>
+            </div>";
             echo "<div class=store-scroll-menu id={$brand[0]["shoeBrand"]}>";
             foreach ($brand as $shoe) {
                 displayContainer($shoe);
@@ -163,7 +167,7 @@ function displayContainer(array $item)
                 <img class=shoeImg src=https://images.stockx.com/images/{$shoe["showImg"]}>
             </div>
             <div class=infoContainer>
-                <h2 class=name id={$shoe["id"]}>{$shoe["shoeName"]} - {$shoe["id"]}</h2>
+                <h2 class=name id={$shoe["id"]}>{$shoe["shoeName"]}</h2>
                 <div class=colorwrap><h3 class=color>{$shoe["colorWay"]}</h3> <img src=img/coloricon.png></div>
                 <hr id=sep>
                 <div class=wrap>
