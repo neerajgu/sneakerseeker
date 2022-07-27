@@ -48,10 +48,12 @@ html {
     width: inherit;
 }
 
-.store-scroll-menu {
-    overflow: auto;
-    white-space: nowrap;
-    height: 230px;
+@media only screen and (max-width: 600px) {
+    .store-scroll-menu {
+        overflow: auto;
+        white-space: nowrap;
+        height: 230px;
+    }
 }
 
 .store-container {
