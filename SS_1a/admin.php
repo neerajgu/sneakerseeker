@@ -145,23 +145,23 @@ $cartItems = count($cartItems->fetchAll());
                         <p>{$shoe["id"]}</p>
                     </td>
                     <td>
-                        <p class=long>{$shoe["shoeName"]}</p>
+                        <p class=long>" . htmlspecialchars($shoe["shoeName"]) . "</p>
                         <input class=off type=text placeholder=\"{$shoe["shoeName"]}\" value=\"{$shoe["shoeName"]}\" name=shoeName form=editShoes{$shoe["id"]}></input>
                     </td>
                     <td>
-                        <p class=long>{$shoe["shoeBrand"]}</p>
+                        <p class=long>" . htmlspecialchars($shoe["shoeBrand"]) . "</p>
                         <input class=off type=text placeholder=\"{$shoe["shoeBrand"]}\" value=\"{$shoe["shoeBrand"]}\" name=shoeBrand form=editShoes{$shoe["id"]}></input>
                     </td>
                     <td>
-                        <p class=long>{$shoe["colorWay"]}</p>
+                        <p class=long>" . htmlspecialchars($shoe["colorWay"]) . "</p>
                         <input class=off type=text placeholder=\"{$shoe["colorWay"]}\" value=\"{$shoe["colorWay"]}\" name=colorWay form=editShoes{$shoe["id"]}></input>
                     </td>
                     <td>
-                        <p class=long>{$shoe["shoeCost"]}</p>
+                        <p class=long>" . htmlspecialchars($shoe["shoeCost"]) . "</p>
                         <input class=off type=text placeholder=\"{$shoe["shoeCost"]}\" value=\"{$shoe["shoeCost"]}\" name=shoeCost form=editShoes{$shoe["id"]}></input>
                     </td>
                     <td>
-                        <p class=long>{$shoe["showImg"]}</p>
+                        <p class=long>" . htmlspecialchars($shoe["showImg"]) . "</p>
                         <input class=off type=text placeholder=\"{$shoe["showImg"]}\" value=\"{$shoe["showImg"]}\" name=showImg form=editShoes{$shoe["id"]}></input>
                     </td>
                     <td class=editor>
