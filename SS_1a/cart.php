@@ -28,7 +28,7 @@ function displayContainer(array $item)
 {
     echo
     "
-    <a href=store.php?id={$item["id"]} title=\"{$item["shoeName"]} | {$item["colorWay"]}\">
+    <a href=deleteShoe.php?id={$item["id"]}>
     <div class=store-container>
         <img class='shoeIMG' src=https://images.stockx.com/images/{$item["showImg"]}>
         <img class='deleteIMG' src='img/delete.png'>
@@ -89,7 +89,7 @@ $cartItems = count($cartItems->fetchAll());
 
     <div class=store-section>
         <div class=store-label>
-            <h2>Your Cart - <?php echo count($cart); ?> items</h2>
+            <h2>Your Cart - <?php echo count($cart); ?> item(s)</h2>
             <?php
             if (count($cart) > 0) {
                 echo "<a href='clearcart.php'>Clear Cart</a></br>";

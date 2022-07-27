@@ -85,7 +85,7 @@ html {
 }
 
 .store-container:hover > .deleteIMG {
-    opacity: 0.5;
+    opacity: 0.75;
 }
 
 .store-container .container-overlay {
