@@ -30,7 +30,8 @@ function displayContainer(array $item)
     "
     <a href=store.php?id={$item["id"]} title=\"{$item["shoeName"]} | {$item["colorWay"]}\">
     <div class=store-container>
-        <img src=https://images.stockx.com/images/{$item["showImg"]}>
+        <img class='shoeIMG' src=https://images.stockx.com/images/{$item["showImg"]}>
+        <img class='deleteIMG' src='img/delete.png'>
         <div class=container-overlay>
             <p>{$item["shoeName"]}</p>
         </div>

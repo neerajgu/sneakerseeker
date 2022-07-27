@@ -65,8 +65,27 @@ html {
 
 .store-container img {
     width: inherit;
-    height: inherit;
+    /* height: inherit; */
     object-fit: scale-down;
+    position: absolute;
+}
+
+.shoeIMG {
+    z-index: 1;
+}
+
+.deleteIMG {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%;
+    z-index: 2;
+    opacity: 0;
+    transition: 0.25s linear;
+}
+
+.store-container:hover > .deleteIMG {
+    opacity: 0.5;
 }
 
 .store-container .container-overlay {
