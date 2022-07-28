@@ -4,7 +4,7 @@ require_once"config.php";
 //clearing cart items where the user is the logged in user's id
 try {
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
-    $sth=$dbh->prepare("DELETE FROM cart WHERE user_id=:givenUID AND shoe_id=:shoeID");
+    $sth=$dbh->prepare("DELETE FROM cart WHERE user_id=:givenUID AND shoe_id=:shoeID LIMIT 1");
     $sth->bindValue(":givenUID", $_SESSION["id"]);
     $sth->bindValue(":shoeID", $_GET["id"]);
     $check = $sth->execute();
