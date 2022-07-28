@@ -109,7 +109,7 @@ $cartItems = count($cartItems->fetchAll());
     <button class="createButton">Create Shoe</button>
     <button class="cancelCreateButton off">Cancel</button>
 
-    <form class="off add" action=adminedit.php?process=add method=post required>
+    <form class="off add" action=adminedit.php?table=shoe&process=add method=post required>
         <input type=text placeholder="Shoe Name" name=shoeName></input>
         <input type=text placeholder="Shoe Brand" name=shoeBrand></input>
         <input type=text placeholder="Shoe Color" name=colorWay></input>
